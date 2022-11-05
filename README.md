@@ -54,3 +54,34 @@ module.exports = {
 ```
 
 [ref](https://tailwindcss.com/docs/guides/nextjs)
+
+### use tailwindcss template
+
+https://tailwindui.com/components/application-ui/forms/sign-in-forms
+
+1. @heroicons/reactのnpm install
+
+npm install @heroicons/react
+
+2. Auth.jsに下記 import文の追加
+
+import { LockClosedIcon } from '@heroicons/react/solid'
+
+3. VS CodeでES Lint拡張機能を有効化している場合は、Nextjs ver11.0以降では、<img>タグの代わりにNextjsの<Image>を使用しなさいとエラーが発生するので、下記コメント文でこの箇所だけES Lint無効化。
+
+```
+  return (
+    <div className="max-w-md w-full space-y-8">
+      <div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}           <---追加！
+        <img
+          className="mx-auto h-12 w-auto"
+          src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+          alt="Workflow"
+        />
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
+          {isLogin ? "Login" : "Sign up"}
+        </h2>
+      </div>
+
+```
